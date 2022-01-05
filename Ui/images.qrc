@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>闹钟.png</file>
+    <file>自定义.png</file>
+    <file>跑道.png</file>
+    <file>点光源.png</file>
+    <file>放大.png</file>
+    <file>微波.png</file>
+    <file>-采集卡.png</file>
+    <file>泳圈.png</file>
+    <file>about.png</file>
+    <file>临摹-设置2.png</file>
+    <file>history .png</file>
+    <file>隐藏.png</file>
+    <file>显示.png</file>
+  </qresource>
+  <qresource prefix="background">
+    <file>牛.jpg</file>
+    <file>back2.jpeg</file>
+    <file>bule.jpeg</file>
+    <file>back1.jpg</file>
+  </qresource>
+</RCC>
