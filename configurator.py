@@ -54,23 +54,23 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def init(self, val):
         if val == 0:
-            fl.init(self)
-            # self.setFixedSize(489, 440)
             self.comboBox_len.setEditable(True)
             font = QFont()
             font.setFamily("华文细黑")
             self.comboBox_len.lineEdit().setFont(font)
             self.comboBox_len.setValidator(QIntValidator(0, 131072))
+            fl.init(self)
+            # self.setFixedSize(489, 440)
             self.signal_pulse_change(self.comboBox_pulse_change.currentIndex())
         elif val == 1:
-            long.init(self)
-            # self.setFixedSize(489, 335)
             # 下拉框变为可编辑
             self.comboBox_len_2.setEditable(True)
             font = QFont()
             font.setFamily("华文细黑")
             self.comboBox_len_2.lineEdit().setFont(font)
             self.comboBox_len_2.setValidator(QIntValidator(0, 131072))
+            long.init(self)
+            # self.setFixedSize(489, 335)
         elif val == 2:
             gx.init(self)
             # self.setFixedSize(350, 350)
