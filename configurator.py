@@ -285,7 +285,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # 整体页面
     def about(self):
-        QtWidgets.QMessageBox.about(self, "关于", "版本号：V2.4\n"
+        QtWidgets.QMessageBox.about(self, "关于", "版本号：V2.5\n"
                                                 "武汉烽理光电技术有限公司")
 
     def update_record(self):
@@ -310,7 +310,8 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                                   "V2.2.2更新：增加了PZT的电位幅度可调范围;修改页面布局;自定义页面增加发送延迟时间；"
                                                   "兼容32位操作系统；增加采集卡通道记忆功能；增加超长距离的通道个数。\n"
                                                   "V2.3更新：采集卡和超长距离页面增加偏置电压调节；修改超长距离页面串口记忆功能bug；超长距离增加光迅页面。\n"
-                                                  "V2.4更新：增加两通道长距离串口转发;更改拉曼设置电流协议。\n")
+                                                  "V2.4更新：增加两通道长距离串口转发;更改拉曼设置电流协议。\n"
+                                                  "V2.5更新：修改长距离模块长度记忆，自定义发送多个峰值文件。\n")
 
     def show_all_tab(self):
         self.setupUi(self)

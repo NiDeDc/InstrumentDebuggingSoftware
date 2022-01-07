@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>仪表参数设置 V2.4</string>
+   <string>仪表参数设置 V2.5</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
