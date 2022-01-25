@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>仪表参数设置 V2.5</string>
+   <string>仪表参数设置 V2.6</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
@@ -82,20 +82,52 @@ color: rgb(0, 74, 109);</string>
         <string>采集卡</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_10">
-        <item row="5" column="0">
-         <widget class="QGroupBox" name="groupBox_advance">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="groupBox_bias">
           <property name="title">
-           <string>发送峰值数据(初始位置6，间隔10)</string>
+           <string>偏置电压</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_9">
-           <item row="0" column="3">
-            <spacer name="horizontalSpacer_4">
+          <layout class="QHBoxLayout" name="horizontalLayout_16">
+           <item>
+            <widget class="QLabel" name="label_35">
+             <property name="text">
+              <string>调节方向</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_bias">
+             <item>
+              <property name="text">
+               <string>Up</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Down</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_36">
+             <property name="text">
+              <string>调节步数</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinBox_bias">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>128</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_39">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -107,83 +139,10 @@ color: rgb(0, 74, 109);</string>
              </property>
             </spacer>
            </item>
-           <item row="0" column="2">
-            <widget class="QPushButton" name="pushButton_personal">
+           <item>
+            <widget class="QPushButton" name="pushButton_bias">
              <property name="text">
-              <string>自定义</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout_3">
-             <property name="sizeConstraint">
-              <enum>QLayout::SetDefaultConstraint</enum>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label">
-               <property name="text">
-                <string>需要的通道数：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="comboBox_chan">
-               <property name="currentIndex">
-                <number>0</number>
-               </property>
-               <item>
-                <property name="text">
-                 <string>1</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>2</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>3</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>4</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>12</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_20">
-               <property name="text">
-                <string>峰值数据个数：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QSpinBox" name="spinBox_peak_num">
-               <property name="maximum">
-                <number>10000</number>
-               </property>
-               <property name="singleStep">
-                <number>10</number>
-               </property>
-               <property name="value">
-                <number>100</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="pushButton_peadsend">
-             <property name="text">
-              <string>发送</string>
+              <string>设置</string>
              </property>
             </widget>
            </item>
@@ -240,13 +199,6 @@ color: rgb(0, 74, 109);</string>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_pulse_change">
-             <property name="text">
-              <string>切换</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_3">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -258,6 +210,54 @@ color: rgb(0, 74, 109);</string>
               </size>
              </property>
             </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_pulse_change">
+             <property name="text">
+              <string>切换</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>串口选择</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0">
+           <item>
+            <widget class="QComboBox" name="comboBox_com"/>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -431,13 +431,6 @@ color: rgb(0, 74, 109);</string>
             </layout>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_advance">
-             <property name="text">
-              <string>峰值数据发送⩔</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_2">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -450,11 +443,18 @@ color: rgb(0, 74, 109);</string>
              </property>
             </spacer>
            </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_advance">
+             <property name="text">
+              <string>峰值数据发送⩔</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
-        <item row="0" column="0">
-         <widget class="QGroupBox" name="groupBox">
+        <item row="5" column="0">
+         <widget class="QGroupBox" name="groupBox_advance">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -462,91 +462,84 @@ color: rgb(0, 74, 109);</string>
            </sizepolicy>
           </property>
           <property name="title">
-           <string>串口选择</string>
+           <string>发送峰值数据(初始位置6，间隔10)</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0">
-           <item>
-            <widget class="QComboBox" name="comboBox_com"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_changer">
-             <property name="styleSheet">
-              <string notr="true"/>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBox_chan">
+             <property name="currentIndex">
+              <number>0</number>
              </property>
-             <property name="text">
-              <string>打开串口</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QGroupBox" name="groupBox_bias">
-          <property name="title">
-           <string>偏置电压</string>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_16">
-           <item>
-            <widget class="QLabel" name="label_35">
-             <property name="text">
-              <string>调节方向</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="comboBox_bias">
              <item>
               <property name="text">
-               <string>Up</string>
+               <string>1</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>Down</string>
+               <string>2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>4</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>12</string>
               </property>
              </item>
             </widget>
            </item>
-           <item>
-            <widget class="QLabel" name="label_36">
+           <item row="0" column="3">
+            <widget class="QPushButton" name="pushButton_personal">
              <property name="text">
-              <string>调节步数</string>
+              <string>自定义</string>
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QSpinBox" name="spinBox_bias">
-             <property name="minimum">
-              <number>1</number>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>需要的通道数：</string>
              </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_peadsend">
+             <property name="text">
+              <string>发送</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_20">
+             <property name="text">
+              <string>峰值数据个数：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="spinBox_peak_num">
              <property name="maximum">
-              <number>128</number>
+              <number>10000</number>
+             </property>
+             <property name="singleStep">
+              <number>10</number>
+             </property>
+             <property name="value">
+              <number>100</number>
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_bias">
-             <property name="text">
-              <string>设置</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_39">
+           <item row="0" column="2" rowspan="2">
+            <spacer name="horizontalSpacer_4">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -582,16 +575,6 @@ color: rgb(0, 74, 109);</string>
             <widget class="QComboBox" name="comboBox_com_7"/>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_changer_7">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>打开串口</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_7">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -603,6 +586,16 @@ color: rgb(0, 74, 109);</string>
               </size>
              </property>
             </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer_7">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -730,13 +723,6 @@ color: rgb(0, 74, 109);</string>
             </layout>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_advance_2">
-             <property name="text">
-              <string>峰值数据发送⩔</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_5">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -748,6 +734,13 @@ color: rgb(0, 74, 109);</string>
               </size>
              </property>
             </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_advance_2">
+             <property name="text">
+              <string>峰值数据发送⩔</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -797,13 +790,6 @@ color: rgb(0, 74, 109);</string>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_bias_2">
-             <property name="text">
-              <string>设置</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_40">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -816,6 +802,13 @@ color: rgb(0, 74, 109);</string>
              </property>
             </spacer>
            </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_bias_2">
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -824,87 +817,83 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>发送峰值数据(初始位置6，间隔10)</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <item>
-            <layout class="QGridLayout" name="gridLayout_12">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_21">
-               <property name="text">
-                <string>需要的通道数：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="comboBox_chan_2">
-               <property name="currentIndex">
-                <number>0</number>
-               </property>
-               <item>
-                <property name="text">
-                 <string>1</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>2</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>3</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>4</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_22">
-               <property name="text">
-                <string>峰值数据个数：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QSpinBox" name="spinBox_peak_num_2">
-               <property name="maximum">
-                <number>160000</number>
-               </property>
-               <property name="singleStep">
-                <number>10</number>
-               </property>
-               <property name="value">
-                <number>100</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_peadsend_2">
-             <property name="text">
-              <string>发送</string>
-             </property>
-            </widget>
-           </item>
-           <item>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="0" column="3">
             <widget class="QPushButton" name="pushButton_personal_2">
              <property name="text">
               <string>自定义</string>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_22">
+             <property name="text">
+              <string>峰值数据个数：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_peadsend_2">
+             <property name="text">
+              <string>发送</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_21">
+             <property name="text">
+              <string>需要的通道数：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBox_chan_2">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>4</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="spinBox_peak_num_2">
+             <property name="maximum">
+              <number>160000</number>
+             </property>
+             <property name="singleStep">
+              <number>10</number>
+             </property>
+             <property name="value">
+              <number>100</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="2">
             <spacer name="horizontalSpacer_6">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>24</width>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -957,19 +946,6 @@ color: rgb(0, 74, 109);</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
-            <spacer name="horizontalSpacer_32">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
             <widget class="QComboBox" name="comboBox_com_2"/>
            </item>
            <item>
@@ -1006,16 +982,6 @@ color: rgb(0, 74, 109);</string>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_changer_2">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>打开串口</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_8">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1028,6 +994,16 @@ color: rgb(0, 74, 109);</string>
              </property>
             </spacer>
            </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer_2">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -1036,109 +1012,92 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>电流配置</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_8">
-           <item>
-            <spacer name="horizontalSpacer_24">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEdit_power">
+             <property name="minimumSize">
               <size>
-               <width>100</width>
-               <height>20</height>
+               <width>115</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_5">
-               <property name="text">
-                <string>泵浦电流(mA)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QDoubleSpinBox" name="doubleSpinBox_current">
-               <property name="minimumSize">
-                <size>
-                 <width>113</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="decimals">
-                <number>1</number>
-               </property>
-               <property name="maximum">
-                <double>1000.000000000000000</double>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_4">
-               <property name="text">
-                <string>泵浦功率(mW)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="lineEdit_power">
-               <property name="minimumSize">
-                <size>
-                 <width>115</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_3">
-               <property name="text">
-                <string>泵浦温度( ℃ )</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="lineEdit_temper">
-               <property name="minimumSize">
-                <size>
-                 <width>113</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QPushButton" name="pushButton_read">
-               <property name="text">
-                <string>读取</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QPushButton" name="pushButton_set_2">
-               <property name="text">
-                <string>设置</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="lineEdit_temper">
+             <property name="minimumSize">
+              <size>
+               <width>113</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
-           <item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="pushButton_set_2">
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>泵浦功率(mW)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_read">
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_current">
+             <property name="minimumSize">
+              <size>
+               <width>113</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>1000.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>泵浦电流(mA)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>泵浦温度( ℃ )</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="3">
             <spacer name="horizontalSpacer_9">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>100</width>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -1164,19 +1123,6 @@ color: rgb(0, 74, 109);</string>
            <string>串口选择</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_9">
-           <item>
-            <spacer name="horizontalSpacer_33">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item>
             <widget class="QComboBox" name="comboBox_com_3"/>
            </item>
@@ -1204,16 +1150,6 @@ color: rgb(0, 74, 109);</string>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_changer_3">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>打开串口</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_10">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1226,6 +1162,16 @@ color: rgb(0, 74, 109);</string>
              </property>
             </spacer>
            </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer_3">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -1234,94 +1180,77 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>电流配置</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0,1">
-           <item>
-            <spacer name="horizontalSpacer_25">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_set_3">
+             <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>20</height>
+               <width>0</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
            </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout_2">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_6">
-               <property name="minimumSize">
-                <size>
-                 <width>126</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>泵浦电流(mA)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QDoubleSpinBox" name="doubleSpinBox_current_2">
-               <property name="decimals">
-                <number>1</number>
-               </property>
-               <property name="maximum">
-                <double>1000.000000000000000</double>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_8">
-               <property name="minimumSize">
-                <size>
-                 <width>126</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>泵浦温度( ℃ )</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="lineEdit_temper_2">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QPushButton" name="pushButton_read_2">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>读取</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QPushButton" name="pushButton_set_3">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>设置</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="minimumSize">
+              <size>
+               <width>126</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>泵浦电流(mA)</string>
+             </property>
+            </widget>
            </item>
-           <item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="minimumSize">
+              <size>
+               <width>126</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>泵浦温度( ℃ )</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="pushButton_read_2">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" rowspan="2">
+            <widget class="QLineEdit" name="lineEdit_temper_2">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_current_2">
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>1000.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="2">
             <spacer name="horizontalSpacer_11">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1366,7 +1295,7 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>串口选择</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="1,0,0,0,0,0,1">
+          <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="1,0,0,0,0,0,0">
            <item>
             <spacer name="horizontalSpacer_34">
              <property name="orientation">
@@ -1401,6 +1330,19 @@ color: rgb(0, 74, 109);</string>
             </widget>
            </item>
            <item>
+            <spacer name="horizontalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>148</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <widget class="QPushButton" name="pushButton_changer_6">
              <property name="styleSheet">
               <string notr="true"/>
@@ -1417,19 +1359,6 @@ color: rgb(0, 74, 109);</string>
              </property>
             </widget>
            </item>
-           <item>
-            <spacer name="horizontalSpacer_12">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>148</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
         </item>
@@ -1438,109 +1367,92 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>974nm泵浦</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="1,0,1">
-           <item>
-            <spacer name="horizontalSpacer_26">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="2" column="3">
+            <widget class="QPushButton" name="pushButton_set_4">
+             <property name="text">
+              <string>设置</string>
              </property>
-             <property name="sizeHint" stdset="0">
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>泵浦电流(mA)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEdit_power_2">
+             <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>20</height>
+               <width>115</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout_4">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_13">
-               <property name="text">
-                <string>泵浦电流(mA)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QDoubleSpinBox" name="doubleSpinBox_current_3">
-               <property name="minimumSize">
-                <size>
-                 <width>113</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="decimals">
-                <number>1</number>
-               </property>
-               <property name="maximum">
-                <double>1000.000000000000000</double>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="lineEdit_temper_3">
-               <property name="minimumSize">
-                <size>
-                 <width>113</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="lineEdit_power_2">
-               <property name="minimumSize">
-                <size>
-                 <width>115</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_14">
-               <property name="text">
-                <string>泵浦功率(mW)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_15">
-               <property name="text">
-                <string>泵浦温度( ℃ )</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QPushButton" name="pushButton_set_4">
-               <property name="text">
-                <string>设置</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QPushButton" name="pushButton_read_3">
-               <property name="text">
-                <string>读取</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_read_3">
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
            </item>
-           <item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="lineEdit_temper_3">
+             <property name="minimumSize">
+              <size>
+               <width>113</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_15">
+             <property name="text">
+              <string>泵浦温度( ℃ )</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_current_3">
+             <property name="minimumSize">
+              <size>
+               <width>113</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>1000.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>泵浦功率(mW)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="3">
             <spacer name="horizontalSpacer_13">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>100</width>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -1554,109 +1466,92 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>14xx Raman泵浦</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="1,0,1">
-           <item>
-            <spacer name="horizontalSpacer_27">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEdit_power_3">
+             <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>20</height>
+               <width>115</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout_5">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_16">
-               <property name="text">
-                <string>泵浦电流(mA)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QDoubleSpinBox" name="doubleSpinBox_current_4">
-               <property name="minimumSize">
-                <size>
-                 <width>113</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="decimals">
-                <number>1</number>
-               </property>
-               <property name="maximum">
-                <double>1500.000000000000000</double>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_17">
-               <property name="text">
-                <string>泵浦功率(mW)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="lineEdit_power_3">
-               <property name="minimumSize">
-                <size>
-                 <width>115</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_18">
-               <property name="text">
-                <string>泵浦温度( ℃ )</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="lineEdit_temper_4">
-               <property name="minimumSize">
-                <size>
-                 <width>113</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QPushButton" name="pushButton_read_4">
-               <property name="text">
-                <string>读取</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QPushButton" name="pushButton_set_5">
-               <property name="text">
-                <string>设置</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_read_4">
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
            </item>
-           <item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>泵浦温度( ℃ )</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_current_4">
+             <property name="minimumSize">
+              <size>
+               <width>113</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>1500.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>泵浦电流(mA)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>泵浦功率(mW)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="pushButton_set_5">
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="lineEdit_temper_4">
+             <property name="minimumSize">
+              <size>
+               <width>113</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="3">
             <spacer name="horizontalSpacer_14">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>100</width>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -1696,19 +1591,6 @@ color: rgb(0, 74, 109);</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_14">
            <item>
-            <spacer name="horizontalSpacer_35">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
             <widget class="QComboBox" name="comboBox_com_4"/>
            </item>
            <item>
@@ -1718,16 +1600,6 @@ color: rgb(0, 74, 109);</string>
              </property>
              <property name="text">
               <string>串口选择在控制面板</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_changer_4">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>打开串口</string>
              </property>
             </widget>
            </item>
@@ -1744,6 +1616,16 @@ color: rgb(0, 74, 109);</string>
              </property>
             </spacer>
            </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer_4">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -1755,100 +1637,83 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>TLS4000（老版）</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="1,0,1">
-           <item>
-            <spacer name="horizontalSpacer_28">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+          <layout class="QGridLayout" name="gridLayout_13">
+           <item row="2" column="3">
+            <widget class="QPushButton" name="pushButton_setplaus_tls">
+             <property name="enabled">
+              <bool>false</bool>
              </property>
-             <property name="sizeHint" stdset="0">
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_readtherm">
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEdit_dfb">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>SOA:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>DFB:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lineEdit_soa">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_26">
+             <property name="text">
+              <string>Pluse(ns)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QSpinBox" name="spinBox_pulses_tls">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>20</height>
+               <width>50</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
+            </widget>
            </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout_23">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_10">
-               <property name="text">
-                <string>SOA:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1" colspan="2">
-              <widget class="QLineEdit" name="lineEdit_soa">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QPushButton" name="pushButton_readtherm">
-               <property name="text">
-                <string>读取</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_7">
-               <property name="text">
-                <string>DFB:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1" colspan="2">
-              <widget class="QLineEdit" name="lineEdit_dfb">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="3">
-              <widget class="QPushButton" name="pushButton_setplaus_tls">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="text">
-                <string>设置</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_26">
-               <property name="text">
-                <string>Pluse(ns)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1" colspan="2">
-              <widget class="QSpinBox" name="spinBox_pulses_tls">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>50</width>
-                 <height>0</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
+           <item row="0" column="2" rowspan="3">
             <spacer name="horizontalSpacer_15">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>96</width>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -1863,19 +1728,6 @@ color: rgb(0, 74, 109);</string>
            <string>DTS设置脉宽(ns)（新版）</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_18">
-           <item>
-            <spacer name="horizontalSpacer_38">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item>
             <widget class="QLabel" name="label_34">
              <property name="text">
@@ -1919,6 +1771,19 @@ color: rgb(0, 74, 109);</string>
             </widget>
            </item>
            <item>
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <widget class="QPushButton" name="pushButton_readplaus_dts">
              <property name="text">
               <string>读取</string>
@@ -1931,19 +1796,6 @@ color: rgb(0, 74, 109);</string>
               <string>设置</string>
              </property>
             </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_16">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
@@ -1979,30 +1831,7 @@ color: rgb(0, 74, 109);</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_19">
            <item>
-            <spacer name="horizontalSpacer_36">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
             <widget class="QComboBox" name="comboBox_com_5"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_changer_5">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>打开串口</string>
-             </property>
-            </widget>
            </item>
            <item>
             <spacer name="horizontalSpacer_22">
@@ -2017,6 +1846,16 @@ color: rgb(0, 74, 109);</string>
              </property>
             </spacer>
            </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer_5">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -2025,89 +1864,72 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>波形配置</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="1,0,1">
-           <item>
-            <spacer name="horizontalSpacer_30">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+          <layout class="QGridLayout" name="gridLayout_12">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>设置频率(Hz)</string>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_wave_changer">
+             <property name="text">
+              <string>关闭</string>
              </property>
-            </spacer>
+            </widget>
            </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout_18">
-             <item row="0" column="1">
-              <widget class="QComboBox" name="comboBox_wave">
-               <item>
-                <property name="text">
-                 <string>正弦波</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>三角波</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>方波</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_11">
-               <property name="text">
-                <string>设置频率(Hz)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QPushButton" name="pushButton_wave_changer">
-               <property name="text">
-                <string>关闭</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_9">
-               <property name="text">
-                <string>波形选择</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QPushButton" name="pushButton">
-               <property name="text">
-                <string>设置</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QSpinBox" name="spinBox_freq_2">
-               <property name="maximum">
-                <number>100</number>
-               </property>
-               <property name="value">
-                <number>50</number>
-               </property>
-              </widget>
-             </item>
-            </layout>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="spinBox_freq_2">
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
+            </widget>
            </item>
-           <item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>波形选择</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBox_wave">
+             <item>
+              <property name="text">
+               <string>正弦波</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>三角波</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>方波</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="2">
             <spacer name="horizontalSpacer_19">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>135</width>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -2121,147 +1943,122 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>幅度调节</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_20" stretch="1,0,1">
-           <item>
-            <spacer name="horizontalSpacer_29">
+          <layout class="QGridLayout" name="gridLayout_18">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_29">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>基准电压</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_wave_amplitude">
+             <property name="text">
+              <string>29.2V</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_33">
+             <property name="text">
+              <string>电压值</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_set_centervol">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QSpinBox" name="spinBox_amplitude">
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="maximum">
+              <number>127</number>
+             </property>
+             <property name="value">
+              <number>10</number>
+             </property>
+             <property name="displayIntegerBase">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_centervol">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="maximum">
+              <double>2.050000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.010000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_28">
+             <property name="text">
+              <string>电位幅度</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QPushButton" name="pushButton_read_amplitude">
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="pushButton_read_centervol">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <spacer name="horizontalSpacer_21">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>40</width>
+               <width>142</width>
                <height>20</height>
               </size>
              </property>
             </spacer>
            </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_3">
-             <item>
-              <layout class="QGridLayout" name="gridLayout_20">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_29">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="text">
-                  <string>基准电压</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_centervol">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="maximum">
-                  <double>2.050000000000000</double>
-                 </property>
-                 <property name="singleStep">
-                  <double>0.010000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QPushButton" name="pushButton_read_centervol">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="text">
-                  <string>读取</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0" colspan="2">
-                <spacer name="horizontalSpacer_21">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="1" column="2">
-                <widget class="QPushButton" name="pushButton_set_centervol">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="text">
-                  <string>设置</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QGridLayout" name="gridLayout_19">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_28">
-                 <property name="text">
-                  <string>电位幅度</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QSpinBox" name="spinBox_amplitude">
-                 <property name="minimum">
-                  <number>0</number>
-                 </property>
-                 <property name="maximum">
-                  <number>127</number>
-                 </property>
-                 <property name="value">
-                  <number>10</number>
-                 </property>
-                 <property name="displayIntegerBase">
-                  <number>10</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QPushButton" name="pushButton_read_amplitude">
-                 <property name="text">
-                  <string>读取</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_33">
-                 <property name="text">
-                  <string>电压值</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="label_wave_amplitude">
-                 <property name="text">
-                  <string>29.2V</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QPushButton" name="pushButton_amplitude">
-                 <property name="text">
-                  <string>设置</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
+           <item row="3" column="3">
+            <widget class="QPushButton" name="pushButton_amplitude">
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
            </item>
-           <item>
+           <item row="2" column="2">
             <spacer name="horizontalSpacer_18">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>188</width>
+               <width>40</width>
                <height>20</height>
               </size>
              </property>
@@ -2299,32 +2096,9 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>串口选择</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="1,0,0,1">
-           <item>
-            <spacer name="horizontalSpacer_37">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
+          <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="0,0,0">
            <item>
             <widget class="QComboBox" name="comboBox_com_8"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_changer_8">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="text">
-              <string>打开串口</string>
-             </property>
-            </widget>
            </item>
            <item>
             <spacer name="horizontalSpacer_20">
@@ -2339,6 +2113,16 @@ color: rgb(0, 74, 109);</string>
              </property>
             </spacer>
            </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer_8">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -2347,20 +2131,7 @@ color: rgb(0, 74, 109);</string>
           <property name="title">
            <string>参数配置</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="1,0,1">
-           <item>
-            <spacer name="horizontalSpacer_31">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
+          <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="0,1">
            <item>
             <layout class="QGridLayout" name="gridLayout_6">
              <item row="0" column="0">
@@ -2483,6 +2254,198 @@ color: rgb(0, 74, 109);</string>
            </size>
           </property>
          </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>电源板</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QGroupBox" name="groupBox_21">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>串口选择</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_24" stretch="0,0,0">
+           <item>
+            <widget class="QComboBox" name="comboBox_com_9"/>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_41">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer_9">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_22">
+          <property name="title">
+           <string>关闭/重启</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_25">
+           <item>
+            <widget class="QComboBox" name="comboBox_com_10">
+             <item>
+              <property name="text">
+               <string>采集卡</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>PZT</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>工控板</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>ALL</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_43">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>309</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_shutdown">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>关闭</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_restart">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>重启</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_23">
+          <property name="title">
+           <string>重启时间</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_26">
+           <item>
+            <widget class="QComboBox" name="comboBox_com_11">
+             <item>
+              <property name="text">
+               <string>采集卡</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>PZT</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>工控板</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinBox_time">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>65535</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_39">
+             <property name="text">
+              <string>ms</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_42">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>309</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_read_12">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_write_12">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>写入</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -2631,310 +2594,6 @@ color: rgb(0, 74, 109);</string>
  </resources>
  <connections>
   <connection>
-   <sender>pushButton_changer</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>serial1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>209</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>187</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_freq()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>293</x>
-     <y>201</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>287</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_start</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>start_caijika()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>293</x>
-     <y>302</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>357</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tabWidget</sender>
-   <signal>tabBarClicked(int)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>change_page()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>68</x>
-     <y>182</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>5</x>
-     <y>108</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_pa</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>change_confirm1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>243</x>
-     <y>122</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>270</x>
-     <y>15</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_ba</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>change_confirm1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>297</x>
-     <y>122</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>347</x>
-     <y>18</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_pa_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>change_confirm2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>243</x>
-     <y>122</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>255</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_ba_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>change_confirm2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>297</x>
-     <y>122</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>175</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_changer_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>serial2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>387</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>466</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_changer_3</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>serial3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>387</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>488</x>
-     <y>12</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_read</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>read2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>196</x>
-     <y>310</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>56</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>328</x>
-     <y>310</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>79</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_read_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>read3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>196</x>
-     <y>273</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>21</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_3</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>328</x>
-     <y>273</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>63</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_changer_4</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>serial4()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>333</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>535</x>
-     <y>16</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_readtherm</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>read4_1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>418</x>
-     <y>202</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>14</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_setplaus_tls</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set4()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>418</x>
-     <y>239</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>463</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_changer_5</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>serial5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>333</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>48</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>383</x>
-     <y>201</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>408</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>action_about</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
@@ -2967,294 +2626,6 @@ color: rgb(0, 74, 109);</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_advance</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>advance_show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>439</x>
-     <y>253</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>435</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_peadsend</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>send_peak()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>331</x>
-     <y>548</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>493</x>
-     <y>463</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_changer_6</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>serial6()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>340</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>166</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_read_3</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>read6_1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>196</x>
-     <y>310</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1</x>
-     <y>364</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_4</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set6_1()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>328</x>
-     <y>310</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>384</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_read_4</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>read6_2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>196</x>
-     <y>497</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1</x>
-     <y>574</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_5</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set6_2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>328</x>
-     <y>497</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>394</x>
-     <y>616</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>attention()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>430</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>523</x>
-     <y>28</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_personal</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>personal()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>412</x>
-     <y>548</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>530</x>
-     <y>618</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_changer_7</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>serial_long()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>209</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>654</x>
-     <y>127</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_6</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>setfreq_long()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>304</x>
-     <y>201</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>658</x>
-     <y>264</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_start_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>start_long()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>304</x>
-     <y>269</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>656</x>
-     <y>367</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_advance_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>advance_long()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>422</x>
-     <y>237</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>659</x>
-     <y>315</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_peadsend_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>send_peak_long()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>342</x>
-     <y>439</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>653</x>
-     <y>516</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_personal_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>personal_long()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>423</x>
-     <y>439</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>657</x>
-     <y>561</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_readplaus_dts</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>read4_2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>336</x>
-     <y>352</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>3</x>
-     <y>558</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_setplaus_dts</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>setplaus4_dts()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>417</x>
-     <y>352</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>513</x>
-     <y>620</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_amplitude</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set5_2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>356</x>
-     <y>422</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>651</x>
-     <y>510</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>action_hide</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
@@ -3283,38 +2654,6 @@ color: rgb(0, 74, 109);</string>
     <hint type="destinationlabel">
      <x>329</x>
      <y>322</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_read_centervol</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>read5()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>356</x>
-     <y>315</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>3</x>
-     <y>358</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_centervol</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set5_3()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>356</x>
-     <y>350</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1</x>
-     <y>424</y>
     </hint>
    </hints>
   </connection>
@@ -3399,54 +2738,6 @@ color: rgb(0, 74, 109);</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_changer_8</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>serial7()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>333</x>
-     <y>124</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>661</x>
-     <y>157</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_sameper</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_sameper()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>436</x>
-     <y>202</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>650</x>
-     <y>618</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_set_sameplaus</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_sameplaus()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>436</x>
-     <y>239</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>654</x>
-     <y>600</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>action_DAS_1</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
@@ -3495,13 +2786,93 @@ color: rgb(0, 74, 109);</string>
    </hints>
   </connection>
   <connection>
+   <sender>action_ch2</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_ch2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>244</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_read_centervol</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>read5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>311</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>3</x>
+     <y>358</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_bias_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>bias_set_long()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>486</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setplaus_dts</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setplaus4_dts()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>620</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_centervol</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set5_3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>pushButton_set_samtimeout</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>set_samtimeout()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>436</x>
+     <x>416</x>
      <y>276</y>
     </hint>
     <hint type="destinationlabel">
@@ -3511,18 +2882,50 @@ color: rgb(0, 74, 109);</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_read_amplitude</sender>
-   <signal>clicked()</signal>
+   <sender>spinBox_amplitude</sender>
+   <signal>valueChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>read5_2()</slot>
+   <slot>wave_amplitude_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>356</x>
-     <y>387</y>
+     <x>174</x>
+     <y>381</y>
     </hint>
     <hint type="destinationlabel">
-     <x>658</x>
-     <y>588</y>
+     <x>5</x>
+     <y>551</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_amplitude</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set5_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>416</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>651</x>
+     <y>510</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_sameplaus</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_sameplaus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>416</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>654</x>
+     <y>600</y>
     </hint>
    </hints>
   </connection>
@@ -3533,12 +2936,76 @@ color: rgb(0, 74, 109);</string>
    <slot>pulse_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>401</x>
-     <y>455</y>
+     <x>593</x>
+     <y>456</y>
     </hint>
     <hint type="destinationlabel">
      <x>664</x>
      <y>531</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_bias</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>bias_set()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>379</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>484</x>
+     <y>372</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_wave_changer</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>wave_changer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>655</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_8</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial7()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>661</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_sameper</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_sameper()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>416</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>650</x>
+     <y>618</y>
     </hint>
    </hints>
   </connection>
@@ -3559,82 +3026,18 @@ color: rgb(0, 74, 109);</string>
    </hints>
   </connection>
   <connection>
-   <sender>spinBox_amplitude</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>wave_amplitude_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>275</x>
-     <y>387</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>5</x>
-     <y>551</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_wave_changer</sender>
+   <sender>pushButton_read_amplitude</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>wave_changer()</slot>
+   <slot>read5_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>383</x>
-     <y>236</y>
+     <x>593</x>
+     <y>381</y>
     </hint>
     <hint type="destinationlabel">
-     <x>655</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_bias</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>bias_set()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>384</x>
-     <y>371</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>484</x>
-     <y>372</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_bias_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>bias_set_long()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>417</x>
-     <y>346</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>486</x>
-     <y>336</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>action_ch2</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>change_ch2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>244</x>
-     <y>313</y>
+     <x>658</x>
+     <y>588</y>
     </hint>
    </hints>
   </connection>
@@ -3651,6 +3054,662 @@ color: rgb(0, 74, 109);</string>
     <hint type="destinationlabel">
      <x>97</x>
      <y>25</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>408</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_start</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_caijika()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>357</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_read_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>read3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>21</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_readtherm</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>read4_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>14</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_advance</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>advance_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>253</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_pa</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_confirm1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>173</x>
+     <y>122</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>270</x>
+     <y>15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>63</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set6_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>384</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_ba_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_confirm2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>227</x>
+     <y>122</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabWidget</sender>
+   <signal>tabBarClicked(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_page()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>68</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>16</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_read</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>read2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>236</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>56</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial6()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>503</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>166</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set6_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>423</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>394</x>
+     <y>616</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_freq()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setplaus_tls</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>463</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setfreq_long()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>304</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>658</x>
+     <y>264</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>466</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_7</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial_long()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>654</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_read_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>read6_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>236</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>364</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_read_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>read6_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>386</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>574</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>attention()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>523</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_advance_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>advance_long()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>237</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>659</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_peadsend_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>send_peak_long()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>457</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>653</x>
+     <y>516</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_personal_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>personal_long()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>657</x>
+     <y>561</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_readplaus_dts</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>read4_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>512</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>3</x>
+     <y>558</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_start_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_long()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>304</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>656</x>
+     <y>367</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>48</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_ba</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_confirm1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>227</x>
+     <y>122</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>347</x>
+     <y>18</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>488</x>
+     <y>12</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_pa_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_confirm2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>173</x>
+     <y>122</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_peadsend</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>send_peak()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>567</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>493</x>
+     <y>463</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_personal</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>personal()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>532</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>530</x>
+     <y>618</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_9</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial8()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>537</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>624</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_shutdown</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_shutdown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>475</x>
+     <y>330</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>626</x>
+     <y>279</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_restart</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_restart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>565</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>624</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_read_12</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_read()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>477</x>
+     <y>510</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>624</x>
+     <y>481</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_write_12</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_write()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>574</x>
+     <y>501</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>624</x>
+     <y>523</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_com_10</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>type_change(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>77</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>623</x>
+     <y>241</y>
     </hint>
    </hints>
   </connection>
@@ -3718,5 +3777,11 @@ color: rgb(0, 74, 109);</string>
   <slot>bias_set_long()</slot>
   <slot>change_ch2()</slot>
   <slot>raman_transfer()</slot>
+  <slot>serial8()</slot>
+  <slot>set_shutdown()</slot>
+  <slot>set_restart()</slot>
+  <slot>set_read()</slot>
+  <slot>set_write()</slot>
+  <slot>type_change(int)</slot>
  </slots>
 </ui>

@@ -14,13 +14,14 @@ from App import raman
 from App import long
 from App import clock
 from App.personal import person
+from App import power
 
 
 class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init__(self):
         super(OriginWindow, self).__init__()
-        self.index = [0, 1, 2, 3, 4, 5, 6, 7]  # 设定初始选框卡的index数组
+        self.index = [0, 1, 2, 3, 4, 5, 6, 7, 8]  # 设定初始选框卡的index数组
         # 当前所选仪表类别
         # 1代表两通道，四通道周界和单通道DAS
         # 2代表四通道DAS
@@ -47,7 +48,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in range(len(self.index)):
             if self.index[i] == 0:
                 self.init(i)
-                self.tabWidget.currentWidget().layout().setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
+                # self.tabWidget.currentWidget().layout().setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
                 break
             else:
                 pass
@@ -89,8 +90,11 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif val == 7:
             clock.init(self)
             # self.setFixedSize(659, 464)
+        elif val == 8:
+            power.init(self)
         else:
             pass
+        # self.layout().setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
 
     # 页面改变后初始化页面信息
     def change_page(self, val):
@@ -283,9 +287,32 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def set_samtimeout(self):
         clock.setout(self)
 
+    # 电源滤波板
+
+    def serial8(self):
+        power.open_com(self)
+
+    def set_shutdown(self):
+        power.set_shutdown(self)
+
+    def set_restart(self):
+        power.set_restart(self)
+
+    def set_read(self):
+        power.set_read(self)
+
+    def set_write(self):
+        power.set_write(self)
+
+    def type_change(self, index):
+        if index == 2 or index == 3:
+            self.pushButton_shutdown.hide()
+        elif index == 0 or index == 1:
+            self.pushButton_shutdown.show()
+
     # 整体页面
     def about(self):
-        QtWidgets.QMessageBox.about(self, "关于", "版本号：V2.5\n"
+        QtWidgets.QMessageBox.about(self, "关于", "版本号：V2.6\n"
                                                 "武汉烽理光电技术有限公司")
 
     def update_record(self):
@@ -311,7 +338,8 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                                   "兼容32位操作系统；增加采集卡通道记忆功能；增加超长距离的通道个数。\n"
                                                   "V2.3更新：采集卡和超长距离页面增加偏置电压调节；修改超长距离页面串口记忆功能bug；超长距离增加光迅页面。\n"
                                                   "V2.4更新：增加两通道长距离串口转发;更改拉曼设置电流协议。\n"
-                                                  "V2.5更新：修改长距离模块长度记忆，自定义发送多个峰值文件。\n")
+                                                  "V2.5更新：修改长距离模块长度记忆，自定义发送多个峰值文件。\n"
+                                                  "V2.6更新：增加电源滤波板页面。\n")
 
     def show_all_tab(self):
         self.setupUi(self)
@@ -352,7 +380,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # 隐藏配置文件中设置需要隐藏的tab
     def disable_tab(self):
-        index = [0, 1, 2, 3, 4, 5, 6, 7]  # 模块隐藏之前各模块对应的实际index
+        index = [0, 1, 2, 3, 4, 5, 6, 7, 8]  # 模块隐藏之前各模块对应的实际index
         opt = co.get_hide_sections()
         count = 0  # 对隐藏的选项卡计数，因为每隐藏一个tab，之后的选项卡对应的index就会减1
         for i in range(len(opt)):

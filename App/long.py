@@ -6,6 +6,7 @@ import config as co
 from PyQt5.QtWidgets import QMessageBox
 
 ser = serial.Serial()
+instructions = 0x01
 
 
 def init(self):

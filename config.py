@@ -55,6 +55,10 @@ config["CLOCK"] = {
     'timeout': '100'
 }
 
+config["POWER"] = {
+    'port': 'COM1'
+}
+
 config["HIDE"] = {
     "fengli": "1",
     "long": "1",
@@ -63,7 +67,8 @@ config["HIDE"] = {
     "raman": "1",
     "tls": "1",
     "wave": "1",
-    "clock": "1"
+    "clock": "1",
+    "power": "1"
 }
 
 # 仪表选择
