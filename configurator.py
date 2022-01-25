@@ -27,7 +27,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 2代表四通道DAS
         # 3代表超长距离
         self.dev = co.read_config("SELECT", "dev")
-        self.show_all_tab()
+        # self.show_all_tab()
         self.personal_page = person()  # 采集卡自定义实例
 
         # self.timer = QTimer(self)
@@ -94,6 +94,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             power.init(self)
         else:
             pass
+        # self.setFixedSize(self.sizeHint())
         # self.layout().setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
 
     # 页面改变后初始化页面信息
@@ -231,7 +232,8 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         soa.open_com(self)
 
     def read4_1(self):
-        soa.read_datatherm(self)
+        pass
+        # soa.read_datatherm(self)
 
     # def read4_2(self):
     #     soa.read_datapd(self)
@@ -243,7 +245,8 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         soa.set_plaus_dts(self)
 
     def set4(self):
-        soa.set_dataplaus_tls(self)
+        # soa.set_dataplaus_tls(self)
+        pass
 
     # 波形发送器页面函数
     def serial5(self):
@@ -343,7 +346,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def show_all_tab(self):
         self.setupUi(self)
-        self.index = [0, 1, 2, 3, 4, 5, 6, 7]
+        self.index = [0, 1, 2, 3, 4, 5, 6, 7, 8]
         self.init(0)
         opt = co.get_hide_sections()
         for i in range(len(opt)):
@@ -357,6 +360,8 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             dev_str = '超长距离周界'
         elif self.dev == "4":
             dev_str = "两通道长距离声波(串口转发)"
+        else:
+            dev_str = "未知"
         label = QtWidgets.QLabel("当前仪表:" + dev_str + ' ')
         self.statusbar.addPermanentWidget(label, stretch=0)
 
