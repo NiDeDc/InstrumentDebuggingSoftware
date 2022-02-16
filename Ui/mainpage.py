@@ -931,6 +931,7 @@ class Ui_MainWindow(object):
         self.comboBox_com_11.addItem("")
         self.horizontalLayout_26.addWidget(self.comboBox_com_11)
         self.spinBox_time = QtWidgets.QSpinBox(self.groupBox_23)
+        self.spinBox_time.setMinimumSize(QtCore.QSize(100, 0))
         self.spinBox_time.setMinimum(1)
         self.spinBox_time.setMaximum(65535)
         self.spinBox_time.setObjectName("spinBox_time")

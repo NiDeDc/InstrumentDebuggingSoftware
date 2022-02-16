@@ -155,11 +155,14 @@ def receive_data(self):
             if status == 0x00:
                 QMessageBox.information(self, "提示", "关闭成功！")
             elif status == 0x01:
-                QMessageBox.information(self, "提示", "重启成功！")
+                QMessageBox.information(self, "提示", "发送成功！")
         elif cmm == 0x03 or cmm == 0x04:
-            QMessageBox.information(self, "提示", "重启成功！")
+            QMessageBox.information(self, "提示", "发送成功！")
         elif cmm == 0x06:
-            QMessageBox.information(self, "提示", "写入成功！")
+            if data[5] == 0x00:
+                QMessageBox.critical(self, "错误", "写入时间应应保证采集卡<PZT<工控板！")
+            else:
+                QMessageBox.information(self, "提示", "写入成功！")
         elif cmm == 0xff:
             QMessageBox.critical(self, "错误", "命令字错误！")
         else:

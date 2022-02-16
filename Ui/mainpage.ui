@@ -2396,6 +2396,12 @@ color: rgb(0, 74, 109);</string>
            </item>
            <item>
             <widget class="QSpinBox" name="spinBox_time">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="minimum">
               <number>1</number>
              </property>
