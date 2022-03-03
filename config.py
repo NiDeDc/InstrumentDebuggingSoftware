@@ -59,6 +59,13 @@ config["POWER"] = {
     'port': 'COM1'
 }
 
+config["PCIE"] = {
+    'freq': '3000',
+    "length": "8000",
+    "chCount": "3",
+    "add": "4",
+}
+
 config["HIDE"] = {
     "fengli": "1",
     "long": "1",
@@ -68,7 +75,8 @@ config["HIDE"] = {
     "tls": "1",
     "wave": "1",
     "clock": "1",
-    "power": "1"
+    "power": "1",
+    "pcie": "1"
 }
 
 # 仪表选择

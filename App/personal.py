@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from App import fengli as fl
 from App import long
+from App import pcie
 
 import time
 import os
@@ -63,7 +64,7 @@ class person(QtWidgets.QWidget, Ui_Dialog):
                     peak_num_byte2 = peak_num >> 16 & 0xff
                     peak_num_byte3 = peak_num >> 8 & 0xff
                     peak_num_byte4 = peak_num & 0xff
-                    if self.card_type == "normal":
+                    if self.card_type == "normal" or self.card_type == "pcie":
                         peakpos_bytes = [0] * len(peakpos_ary) * 2
                         print(len(peakpos_bytes))
                         for j in range(len(peakpos_ary)):
@@ -76,7 +77,10 @@ class person(QtWidgets.QWidget, Ui_Dialog):
                                       peak_num_byte1, peak_num_byte2, peak_num_byte3, peak_num_byte4,
                                       chan[i]]) + bytes(peakpos_bytes) + bytes([0x00, 0xFF, 0xFF, 0x00])
                         print(data)
-                        fl.ser.write(data)
+                        if self.card_type == "normal":
+                            fl.ser.write(data)
+                        else:
+                            pcie.ser.write(data)
                         time.sleep(self.spinBox_delay.value()/1000)
                     elif self.card_type == "long":
                         peakpos_bytes = [0] * len(peakpos_ary) * 3

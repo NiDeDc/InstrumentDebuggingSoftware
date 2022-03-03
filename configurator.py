@@ -15,13 +15,17 @@ from App import long
 from App import clock
 from App.personal import person
 from App import power
+from App import pcie
+
+total = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]  # 页面总序列
 
 
 class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init__(self):
         super(OriginWindow, self).__init__()
-        self.index = [0, 1, 2, 3, 4, 5, 6, 7, 8]  # 设定初始选框卡的index数组
+        global total
+        self.index = list(total)  # 设定初始选框卡的index数组
         # 当前所选仪表类别
         # 1代表两通道，四通道周界和单通道DAS
         # 2代表四通道DAS
@@ -40,6 +44,8 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.change_long()
         elif self.dev == "4":
             self.change_ch2()
+        elif self.dev == "5":
+            self.change_pcie()
         else:
             pass
 
@@ -92,6 +98,14 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             # self.setFixedSize(659, 464)
         elif val == 8:
             power.init(self)
+        elif val == 9:
+            # 下拉框变为可编辑
+            self.comboBox_len_3.setEditable(True)
+            font = QFont()
+            font.setFamily("华文细黑")
+            self.comboBox_len_3.lineEdit().setFont(font)
+            self.comboBox_len_3.setValidator(QIntValidator(0, 131072))
+            pcie.init(self)
         else:
             pass
         # self.setFixedSize(self.sizeHint())
@@ -313,9 +327,43 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif index == 0 or index == 1:
             self.pushButton_shutdown.show()
 
+    # PCIE采集卡
+
+    def serial9(self):
+        pcie.open_com(self)
+
+    def set_freq_p(self):
+        pcie.set_freq(self)
+
+    def advance_show_p(self):
+        if self.pushButton_advance_3.text() == "峰值数据发送⩔":
+            self.pushButton_advance_3.setText("峰值数据发送⩓")
+            self.groupBox_advance_3.show()
+            # self.setFixedSize(489, 550)
+        else:
+            self.pushButton_advance_3.setText("峰值数据发送⩔")
+            self.groupBox_advance_3.hide()
+            # self.setFixedSize(489, 440)
+
+    def send_peak_p(self):
+        pcie.send_peak(self)
+
+    def personal_p(self):
+        self.personal_page.show()
+        person.change_card(self.personal_page, "pcie")
+
+    def set_shutdown_p(self):
+        pcie.set_shutdown(self)
+
+    def set_start_p(self):
+        pcie.set_start(self)
+
+    def set_mode(self):
+        pcie.set_mode(self)
+
     # 整体页面
     def about(self):
-        QtWidgets.QMessageBox.about(self, "关于", "版本号：V2.6\n"
+        QtWidgets.QMessageBox.about(self, "关于", "版本号：V2.7\n"
                                                 "武汉烽理光电技术有限公司")
 
     def update_record(self):
@@ -342,11 +390,12 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                                   "V2.3更新：采集卡和超长距离页面增加偏置电压调节；修改超长距离页面串口记忆功能bug；超长距离增加光迅页面。\n"
                                                   "V2.4更新：增加两通道长距离串口转发;更改拉曼设置电流协议。\n"
                                                   "V2.5更新：修改长距离模块长度记忆，自定义发送多个峰值文件。\n"
-                                                  "V2.6更新：增加电源滤波板页面。\n")
+                                                  "V2.6更新：增加电源滤波板页面。\n"
+                                                  "V2.7更新：增加PCIE采集卡页面。\n")
 
     def show_all_tab(self):
         self.setupUi(self)
-        self.index = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        self.index = list(total)
         self.init(0)
         opt = co.get_hide_sections()
         for i in range(len(opt)):
@@ -360,6 +409,8 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             dev_str = '超长距离周界'
         elif self.dev == "4":
             dev_str = "两通道长距离声波(串口转发)"
+        elif self.dev == "5":
+            dev_str = "PCIE专用"
         else:
             dev_str = "未知"
         label = QtWidgets.QLabel("当前仪表:" + dev_str + ' ')
@@ -385,7 +436,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # 隐藏配置文件中设置需要隐藏的tab
     def disable_tab(self):
-        index = [0, 1, 2, 3, 4, 5, 6, 7, 8]  # 模块隐藏之前各模块对应的实际index
+        index = list(total)  # 模块隐藏之前各模块对应的实际index
         opt = co.get_hide_sections()
         count = 0  # 对隐藏的选项卡计数，因为每隐藏一个tab，之后的选项卡对应的index就会减1
         for i in range(len(opt)):
@@ -425,6 +476,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         co.set_config("HIDE", "raman", "0")
         co.set_config("HIDE", "wave", "0")
         co.set_config("HIDE", "clock", "0")
+        co.set_config("HIDE", "pcie", "0")
         self.index = self.disable_tab()
         self.load_page()
         co.set_config("SELECT", "dev", '1')
@@ -437,6 +489,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         co.set_config("HIDE", "long", "0")
         co.set_config("HIDE", "raman", "0")
         co.set_config("HIDE", 'gaosi', '0')
+        co.set_config("HIDE", "pcie", "0")
         self.index = self.disable_tab()
         self.load_page()
         co.set_config("SELECT", "dev", '2')
@@ -452,6 +505,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         co.set_config("HIDE", "gaosi", "0")
         co.set_config("HIDE", "wave", "0")
         co.set_config("HIDE", "clock", "0")
+        co.set_config("HIDE", "pcie", "0")
         self.index = self.disable_tab()
         self.load_page()
         co.set_config("SELECT", "dev", '3')
@@ -463,9 +517,27 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.show_all_tab()
         co.set_config("HIDE", "fengli", "0")
         co.set_config("HIDE", "gaosi", "0")
+        co.set_config("HIDE", "pcie", "0")
         self.index = self.disable_tab()
         self.load_page()
         co.set_config("SELECT", "dev", '4')
+        self.closeEvent(self)
+
+    def change_pcie(self):
+        self.dev = "5"
+        self.show_all_tab()
+        co.set_config("HIDE", "fengli", "0")
+        co.set_config("HIDE", "long", "0")
+        co.set_config("HIDE", "guangxun", "0")
+        co.set_config("HIDE", "gaosi", "0")
+        co.set_config("HIDE", "raman", "0")
+        co.set_config("HIDE", "tls", "0")
+        co.set_config("HIDE", "wave", "0")
+        co.set_config("HIDE", "clock", "0")
+        co.set_config("HIDE", "power", "0")
+        self.index = self.disable_tab()
+        self.load_page()
+        co.set_config("SELECT", "dev", '5')
         self.closeEvent(self)
 
     # def event(self, event):
@@ -482,6 +554,7 @@ class OriginWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         wave.ser.close()
         raman.ser.close()
         clock.ser.close()
+        pcie.ser.close()
         co.create_config()
         self.personal_page.close()
 

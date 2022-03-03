@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>仪表参数设置 V2.6</string>
+   <string>仪表参数设置 V2.7</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
@@ -2455,6 +2455,479 @@ color: rgb(0, 74, 109);</string>
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>采集卡(PCIE)</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QGroupBox" name="groupBox_24">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>串口选择</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="0,0,0">
+           <item>
+            <widget class="QComboBox" name="comboBox_com_12"/>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_24">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_changer_10">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>打开串口</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_27">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>数据配置</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <layout class="QGridLayout" name="gridLayout_19">
+             <property name="sizeConstraint">
+              <enum>QLayout::SetDefaultConstraint</enum>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_42">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>触发频率：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="spinBox_freq_4">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="maximum">
+                <number>65535</number>
+               </property>
+               <property name="singleStep">
+                <number>100</number>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_43">
+               <property name="text">
+                <string>累加次数：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="comboBox_chancount_3">
+               <property name="currentIndex">
+                <number>3</number>
+               </property>
+               <item>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_44">
+               <property name="text">
+                <string>通道长度：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="comboBox_len_3">
+               <item>
+                <property name="text">
+                 <string>4000</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8000</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10000</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>16000</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>32000</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="comboBox_add_2">
+               <item>
+                <property name="text">
+                 <string>0</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>16</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_45">
+               <property name="text">
+                <string>通道个数：</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_27">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_set_7">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>配置</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_advance_3">
+             <property name="text">
+              <string>峰值数据发送⩔</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_25">
+          <property name="title">
+           <string>使能信号</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QLabel" name="label_40">
+             <property name="text">
+              <string>数据类型</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_pulse_change_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>原始数据</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>峰值数据</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>相位原始数据</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>相位滤波数据</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>相位频谱数据</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_26">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>118</width>
+               <height>26</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_shutdown_2">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>关闭</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_shutdown_3">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>启动</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_26">
+          <property name="title">
+           <string>归一化系数</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>模式选择</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_pulse_change_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>计算归一化参数</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>正常工作</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_25">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>118</width>
+               <height>26</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_shutdown_4">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>设置</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_advance_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>发送峰值数据(初始位置6，间隔10)</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_20">
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBox_chan_3">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>4</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>12</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="pushButton_personal_3">
+             <property name="text">
+              <string>自定义</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_46">
+             <property name="text">
+              <string>需要的通道数：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QPushButton" name="pushButton_peadsend_3">
+             <property name="text">
+              <string>发送</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_47">
+             <property name="text">
+              <string>峰值数据个数：</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="spinBox_peak_num_3">
+             <property name="maximum">
+              <number>10000</number>
+             </property>
+             <property name="singleStep">
+              <number>10</number>
+             </property>
+             <property name="value">
+              <number>100</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="2">
+            <spacer name="horizontalSpacer_28">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -2501,6 +2974,7 @@ color: rgb(0, 74, 109);</string>
     <addaction name="action_DAS_4"/>
     <addaction name="action_long"/>
     <addaction name="action_ch2"/>
+    <addaction name="action_PCIE"/>
    </widget>
    <addaction name="menu_4"/>
    <addaction name="menu_2"/>
@@ -2592,6 +3066,11 @@ color: rgb(0, 74, 109);</string>
   <action name="action_ch2">
    <property name="text">
     <string>两通道长距离声波</string>
+   </property>
+  </action>
+  <action name="action_PCIE">
+   <property name="text">
+    <string>PCIE专用</string>
    </property>
   </action>
  </widget>
@@ -3719,6 +4198,150 @@ color: rgb(0, 74, 109);</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>action_PCIE</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>change_pcie()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>312</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_changer_10</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>serial9()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>534</x>
+     <y>-6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_shutdown_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_shutdown_p()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>512</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_shutdown_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_start_p()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>552</x>
+     <y>-5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_shutdown_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_mode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>455</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>354</x>
+     <y>-3</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_set_7</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_freq_p()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>423</x>
+     <y>236</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>253</x>
+     <y>-13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_advance_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>advance_show_p()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>493</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>220</x>
+     <y>-5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_peadsend_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>send_peak_p()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>532</x>
+     <y>555</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>305</x>
+     <y>593</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_personal_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>personal_p()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>576</x>
+     <y>525</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>374</x>
+     <y>599</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>serial1()</slot>
@@ -3789,5 +4412,14 @@ color: rgb(0, 74, 109);</string>
   <slot>set_read()</slot>
   <slot>set_write()</slot>
   <slot>type_change(int)</slot>
+  <slot>change_pcie()</slot>
+  <slot>serial9()</slot>
+  <slot>set_shutdown_p()</slot>
+  <slot>set_start_p()</slot>
+  <slot>set_mode()</slot>
+  <slot>set_freq_p()</slot>
+  <slot>advance_show_p()</slot>
+  <slot>send_peak_p()</slot>
+  <slot>personal_p()</slot>
  </slots>
 </ui>
