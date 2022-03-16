@@ -60,6 +60,7 @@ config["POWER"] = {
 }
 
 config["PCIE"] = {
+    'port': 'COM1',
     'freq': '3000',
     "length": "8000",
     "chCount": "3",

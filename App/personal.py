@@ -71,15 +71,16 @@ class person(QtWidgets.QWidget, Ui_Dialog):
                             peakpos_bytes[j * 2] = int(peakpos_ary[j]) >> 8 & 0xff
                             peakpos_bytes[j * 2 + 1] = int(peakpos_ary[j]) & 0xff
                         print(peakpos_bytes)
-                        fl.ser.flushInput()
                         data = bytes([0xaa, 0x55, 0x7e, 0x01,
                                       0x00, 0x04,
                                       peak_num_byte1, peak_num_byte2, peak_num_byte3, peak_num_byte4,
                                       chan[i]]) + bytes(peakpos_bytes) + bytes([0x00, 0xFF, 0xFF, 0x00])
                         print(data)
                         if self.card_type == "normal":
+                            fl.ser.flushInput()
                             fl.ser.write(data)
                         else:
+                            pcie.ser.flushInput()
                             pcie.ser.write(data)
                         time.sleep(self.spinBox_delay.value()/1000)
                     elif self.card_type == "long":
